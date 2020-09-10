@@ -2,6 +2,7 @@ import { createTestClient } from 'apollo-server-testing'
 import gql from 'graphql-tag'
 import { format } from 'prettier'
 import { writeFileSync, mkdirSync } from 'fs'
+import { ApolloServer } from 'apollo-server'
 
 const GET_SDL = gql`
   {
@@ -11,7 +12,7 @@ const GET_SDL = gql`
   }
 `
 
-export async function getSDL(server) {
+export async function getSDL(server: ApolloServer) {
   const { query } = createTestClient(server)
   const result = await query({
     query: GET_SDL,
