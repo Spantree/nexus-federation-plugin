@@ -1,7 +1,7 @@
 import { createTestClient } from 'apollo-server-testing'
 import gql from 'graphql-tag'
 import { format } from 'prettier'
-import { writeFileSync } from 'fs'
+import { writeFileSync, mkdirSync } from 'fs'
 
 const GET_SDL = gql`
   {
@@ -24,5 +24,7 @@ export async function getSDL(server) {
     tabWidth: 2,
     parser: 'graphql',
   })
+
+  mkdirSync('src/generated/', { recursive: true })
   writeFileSync('src/generated/transformedSchema.graphql', fileContent)
 }
