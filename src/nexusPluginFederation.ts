@@ -36,7 +36,7 @@ const extendOption = printedGenTyping({
 
 const fieldsOptions = printedGenTyping({
   optional: true,
-  name: 'fields',
+  name: 'fieldDirectives',
   description: `
   Fields options
   `,

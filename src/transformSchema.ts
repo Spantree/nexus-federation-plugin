@@ -12,7 +12,7 @@ interface ObjectType {
     name: string
     extend: boolean
     keyFields: string[]
-    fields: {
+    fieldDirectives: {
       [key: string]: {
         external?: boolean
         provides?: string
@@ -40,7 +40,7 @@ const getTypes = () => {
             keyFields: config.keyFields,
             resolveReference: config.resolveReference,
             extend: config.extend,
-            fields: config.fields,
+            fields: config.fieldDirectives,
           },
         }
       }

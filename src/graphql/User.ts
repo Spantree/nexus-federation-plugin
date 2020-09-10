@@ -3,10 +3,10 @@ import { objectType } from '@nexus/schema'
 export const User = objectType({
   name: 'User',
   keyFields: ['id'],
-  fields: {
+  fieldDirectives: {
     id: {
       external: true,
-      requires: '',
+      requires: 'email name',
     },
     email: {
       external: true,
