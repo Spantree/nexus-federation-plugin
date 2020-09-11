@@ -1,14 +1,17 @@
 import { ApolloServer } from 'apollo-server'
-import { transformSchema } from './transformSchema'
+import {
+  transformSchemaFederation,
+  printTransformedSchema,
+} from '@spantree/nexus-federation'
 import { createContext } from './context'
-import { getSDL } from './buildSchema'
+import { nexusSchema } from './nexusSchema'
 
 const server = new ApolloServer({
-  schema: transformSchema,
+  schema: transformSchemaFederation(nexusSchema),
   context: createContext,
 })
 
 server.listen().then(({ url }) => {
-  getSDL(server)
+  printTransformedSchema(server)
   console.log(`🚀  Server ready at ${url}`)
 })

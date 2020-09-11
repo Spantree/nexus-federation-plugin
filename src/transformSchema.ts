@@ -1,9 +1,8 @@
 import {
-  transformSchemaFederation,
+  transformSchemaFederation as transformSchemaFederation2,
   FederationObjectConfig,
 } from 'graphql-transform-federation'
-import { Context } from './context'
-import { nexusSchema } from './nexusSchema'
+import { NexusGraphQLSchema } from '@nexus/schema/dist/core'
 
 interface ObjectType {
   name: string
@@ -19,17 +18,18 @@ interface ObjectType {
         requires?: string
       }
     }
-    resolveReference: (root: any, ctx: Context) => any
+    resolveReference: (root: any, ctx: any) => any
   }
 }
 
-const {
-  types: outputTypes,
-}: { types: { [key: string]: ObjectType } } = nexusSchema.extensions.nexus
-  .config as any
+export function transformSchemaFederation(schema: NexusGraphQLSchema) {
+  const {
+    types: outputTypes,
+  }: { types: { [key: string]: ObjectType } } = schema.extensions.nexus
+    .config as any
 
-const getTypes = () => {
-  let typesObject: { [key: string]: FederationObjectConfig<Context> } = {}
+  let typesObject: { [key: string]: FederationObjectConfig<any> } = {}
+
   Object.keys(outputTypes).forEach((key) => {
     const config = outputTypes[key].config
     if (!['Query', 'Mutation'].includes(config.name)) {
@@ -46,13 +46,11 @@ const getTypes = () => {
       }
     }
   })
-  return typesObject
-}
 
-export const transformSchema = transformSchemaFederation<Context>(nexusSchema, {
-  Query: {
-    // Ensure the root queries of this schema show up the combined schema
-    extend: true,
-  },
-  ...getTypes(),
-})
+  return transformSchemaFederation2<any>(schema, {
+    Query: {
+      extend: true,
+    },
+    ...typesObject,
+  })
+}

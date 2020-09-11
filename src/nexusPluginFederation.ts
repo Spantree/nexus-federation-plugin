@@ -6,12 +6,12 @@ import {
 import { RootValue, GetGen } from '@nexus/schema/dist/core'
 
 const KeyFieldsImport = printedGenTypingImport({
-  module: '../nexusPluginFederation',
+  module: '@spantree/nexus-federation',
   bindings: ['KeyFields'],
 })
 
 const ObjectTypeFieldsImport = printedGenTypingImport({
-  module: '../nexusPluginFederation',
+  module: '@spantree/nexus-federation',
   bindings: ['ObjectTypeFields'],
 })
 
@@ -45,7 +45,7 @@ const fieldsOptions = printedGenTyping({
 })
 
 const ResolveReferenceImport = printedGenTypingImport({
-  module: '../nexusPluginFederation',
+  module: '@spantree/nexus-federation',
   bindings: ['ResolveReference'],
 })
 

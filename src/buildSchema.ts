@@ -3,6 +3,7 @@ import gql from 'graphql-tag'
 import { format } from 'prettier'
 import { writeFileSync, mkdirSync } from 'fs'
 import { ApolloServer } from 'apollo-server'
+import { join } from 'path'
 
 const GET_SDL = gql`
   {
@@ -12,7 +13,10 @@ const GET_SDL = gql`
   }
 `
 
-export async function getSDL(server: ApolloServer) {
+export async function printTransformedSchema(
+  server: ApolloServer,
+  path = 'src/generated/',
+) {
   const { query } = createTestClient(server)
   const result = await query({
     query: GET_SDL,
@@ -26,6 +30,6 @@ export async function getSDL(server: ApolloServer) {
     parser: 'graphql',
   })
 
-  mkdirSync('src/generated/', { recursive: true })
-  writeFileSync('src/generated/transformedSchema.graphql', fileContent)
+  mkdirSync(path, { recursive: true })
+  writeFileSync(join(path, 'transformedSchema.graphql'), fileContent)
 }

@@ -1,6 +1,6 @@
 import { makeSchema } from '@nexus/schema'
 import * as types from './graphql'
-import { nexusPluginFederation } from './nexusPluginFederation'
+import { nexusPluginFederation } from '@spantree/nexus-federation'
 
 export const nexusSchema = makeSchema({
   types,

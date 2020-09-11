@@ -1,30 +1,31 @@
 {
-  "name": "nexus-federation-plugin",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "@spantree/nexus-federation",
+  "version": "0.0.2",
+  "main": "dist/index.js",
+  "module": "dist/nexus.esm.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "description": "",
   "scripts": {
-    "start": "node dist/server",
-    "clean": "rm -rf dist",
-    "build": "npm -s run clean && tsc",
-    "dev": "ts-node-dev --no-notify --respawn --transpile-only src/server"
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build"
   },
   "dependencies": {
     "@apollo/federation": "^0.20.0",
-    "@nexus/schema": "0.15.0",
-    "apollo-server": "2.16.1",
     "apollo-server-testing": "^2.17.0",
-    "graphql": "15.3.0",
+    "prettier": "2.0.5",
     "graphql-transform-federation": "^2.1.0"
   },
   "devDependencies": {
+    "@nexus/schema": "0.15.0",
+    "apollo-server": "2.16.1",
     "@types/node": "12.12.54",
     "@types/prettier": "^2.1.0",
-    "prettier": "2.0.5",
-    "ts-node": "8.10.2",
-    "ts-node-dev": "1.0.0-pre.58",
+    "graphql": "15.3.0",
     "typescript": "4.0.2"
   },
   "prettier": {
@@ -33,5 +34,11 @@
     "trailingComma": "all"
   },
   "repository": "git@github.com:Spantree/nexus-federation-plugin.git",
-  "author": "Ahmed Elywa"
+  "author": "Ahmed Elywa",
+  "publishConfig": {
+    "access": "restricted"
+  },
+  "files": [
+    "dist"
+  ]
 }
