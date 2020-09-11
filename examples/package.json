@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@nexus/schema": "0.15.0",
-    "@spantree/nexus-federation": "^0.0.2",
+    "@spantree/nexus-federation": "^0.0.6",
     "apollo-server": "2.16.1",
     "graphql": "15.3.0"
   },

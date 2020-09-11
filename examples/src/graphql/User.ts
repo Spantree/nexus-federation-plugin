@@ -7,9 +7,11 @@ export const User = objectType({
     id: {
       external: true,
       requires: 'email name',
+      provides: '',
     },
     email: {
       external: true,
+      requires: '',
     },
   },
   resolveReference: (parent, ctx) => {},
