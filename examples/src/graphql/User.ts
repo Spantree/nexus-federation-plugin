@@ -1,4 +1,4 @@
-import { objectType } from '@nexus/schema'
+import { objectType } from 'nexus'
 
 export const User = objectType({
   name: 'User',
@@ -16,8 +16,8 @@ export const User = objectType({
   },
   resolveReference: (parent, ctx) => {},
   definition(t) {
-    t.int('id', { nullable: false })
-    t.string('email', { nullable: false })
-    t.string('name', { nullable: true })
+    t.nonNull.int('id')
+    t.nonNull.string('email')
+    t.string('name')
   },
 })

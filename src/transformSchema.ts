@@ -2,7 +2,7 @@ import {
   transformSchemaFederation as transformSchemaFederation2,
   FederationObjectConfig,
 } from 'graphql-transform-federation'
-import { NexusGraphQLSchema } from '@nexus/schema/dist/core'
+import { NexusGraphQLSchema } from 'nexus/dist/core'
 import chalk from 'chalk'
 
 interface ObjectType {
