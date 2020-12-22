@@ -17,7 +17,7 @@ npm i @spantree/nexus-federation
 #### nexus plugin
 
 ```ts
-import { makeSchema } from '@nexus/schema'
+import { makeSchema } from 'nexus'
 import { nexusPluginFederation } from '@spantree/nexus-federation'
 
 export const nexusSchema = makeSchema({
@@ -27,14 +27,9 @@ export const nexusSchema = makeSchema({
     schema: __dirname + '/generated/schema.graphql',
     typegen: __dirname + '/generated/nexus.ts',
   },
-  typegenAutoConfig: {
-    sources: [
-      {
-        source: require.resolve('./context'),
-        alias: 'Context',
-      },
-    ],
-    contextType: 'Context.Context',
+  contextType: {
+    module: join(__dirname, 'context.ts'),
+    export: 'Context',
   },
 })
 ```
@@ -72,7 +67,7 @@ server.listen().then(({ url }) => {
 Like [graphql-transform-federation](https://github.com/0xR/graphql-transform-federation#usage) you can pass configration to nexus `objectType`
 
 ```ts
-import { objectType } from '@nexus/schema'
+import { objectType } from 'nexus'
 
 export const User = objectType({
   name: 'User',
@@ -88,9 +83,9 @@ export const User = objectType({
   },
   resolveReference: (parent, ctx) => {},
   definition(t) {
-    t.int('id', { nullable: false })
-    t.string('email', { nullable: false })
-    t.string('name', { nullable: true })
+    t.nonNull.int('id')
+    t.nonNull.string('email')
+    t.string('name')
   },
 })
 ```

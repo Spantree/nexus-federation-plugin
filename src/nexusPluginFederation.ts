@@ -1,9 +1,6 @@
-import { plugin } from '@nexus/schema'
-import {
-  printedGenTyping,
-  printedGenTypingImport,
-} from '@nexus/schema/dist/utils'
-import { RootValue, GetGen } from '@nexus/schema/dist/core'
+import { plugin } from 'nexus'
+import { printedGenTyping, printedGenTypingImport } from 'nexus/dist/utils'
+import { SourceValue, GetGen } from 'nexus/dist/core'
 
 const KeyFieldsImport = printedGenTypingImport({
   module: '@spantree/nexus-federation',
@@ -60,14 +57,14 @@ const resolveReference = printedGenTyping({
 })
 
 export type ResolveReference<TypeName extends string> = (
-  root: RootValue<TypeName>,
+  root: SourceValue<TypeName>,
   context: GetGen<'context'>,
 ) => any
 
-export type KeyFields<TypeName extends string> = (keyof RootValue<TypeName>)[]
+export type KeyFields<TypeName extends string> = (keyof SourceValue<TypeName>)[]
 
 export type ObjectTypeFields<TypeName extends string> = {
-  [key in keyof RootValue<TypeName>]?: {
+  [key in keyof SourceValue<TypeName>]?: {
     external?: boolean
     provides?: string
     requires?: string
