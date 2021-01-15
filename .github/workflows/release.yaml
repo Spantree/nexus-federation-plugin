@@ -15,6 +15,7 @@ jobs:
         with:
           node-version: 14
           registry-url: 'https://registry.npmjs.org'
+      - run: yarn
       - run: yarn prepare
       - run: yarn publish --ignore-scripts
         env:
