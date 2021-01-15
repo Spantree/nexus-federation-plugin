@@ -1,5 +1,5 @@
 {
-  "name": "@spantree/nexus-federation",
+  "name": "nexus-federation-plugin",
   "version": "0.0.6",
   "main": "dist/index.js",
   "module": "dist/nexus.esm.js",
@@ -12,21 +12,23 @@
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "tsdx build"
+    "prepare": "tsdx test && tsdx lint && tsdx build"
   },
   "dependencies": {
     "@apollo/federation": "^0.20.7",
     "apollo-server-testing": "^2.19.0",
     "chalk": "^4.1.0",
     "graphql-transform-federation": "^2.2.0",
-    "prettier": "2.2.1"
+    "nexus": "1.0.0"
   },
   "devDependencies": {
-    "nexus": "1.0.0",
     "@types/node": "14.14.14",
     "@types/prettier": "^2.1.5",
     "apollo-server": "2.19.0",
+    "eslint-plugin-prettier": "^3.3.1",
     "graphql": "15.4.0",
+    "prettier": "2.2.1",
+    "tsdx": "^0.14.1",
     "typescript": "4.1.3"
   },
   "prettier": {
@@ -36,9 +38,6 @@
   },
   "repository": "git@github.com:Spantree/nexus-federation-plugin.git",
   "author": "Ahmed Elywa",
-  "publishConfig": {
-    "access": "restricted"
-  },
   "files": [
     "dist"
   ]

@@ -39,9 +39,9 @@ export function transformSchemaFederation(schema: NexusGraphQLSchema) {
           const fieldConfig = config.fieldDirectives[field]
           if (fieldConfig.requires === '') {
             console.log(
-              `${chalk.yellow('Warning:')} you forget ${chalk.green(
+              `${chalk.yellow('Warning:')} ${chalk.green(
                 'requires',
-              )} field empty in ${chalk.blue(field)} at ${chalk.cyanBright(
+              )} field empty: ${chalk.blue(field)} at ${chalk.cyanBright(
                 config.name,
               )} type`,
             )
@@ -49,9 +49,9 @@ export function transformSchemaFederation(schema: NexusGraphQLSchema) {
 
           if (fieldConfig.provides === '') {
             console.log(
-              `${chalk.yellow('Warning:')} you forget ${chalk.green(
+              `${chalk.yellow('Warning:')} ${chalk.green(
                 'provides',
-              )} field empty in ${chalk.blue(field)} at ${chalk.cyanBright(
+              )} field empty: ${chalk.blue(field)} at ${chalk.cyanBright(
                 config.name,
               )} type`,
             )

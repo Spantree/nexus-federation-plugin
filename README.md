@@ -1,15 +1,15 @@
-## @spantree/nexus-federation
+## nexus-federation-plugin
 
-It's a private nexus plugin package for make integration between nexus schema and apollo federation
+A [Nexus](https://nexusjs.org/) plugin to integrate
+[Apollo Federation](https://www.apollographql.com/docs/federation/)
+with [Nexus Schema](https://nexusjs.org/docs/guides/schema).
 
 ### Install
 
-You must have an account in @spantree Org to install this plugin
-
 ```shell
-yarn add @spantree/nexus-federation
+yarn add nexus-federation-plugin
 or
-npm i @spantree/nexus-federation
+npm i nexus-federation-plugin
 ```
 
 ## API
@@ -18,7 +18,7 @@ npm i @spantree/nexus-federation
 
 ```ts
 import { makeSchema } from 'nexus'
-import { nexusPluginFederation } from '@spantree/nexus-federation'
+import { nexusPluginFederation } from 'nexus-federation-plugin'
 
 export const nexusSchema = makeSchema({
   types,
@@ -41,9 +41,9 @@ import { ApolloServer } from 'apollo-server'
 import {
   transformSchemaFederation,
   printTransformedSchema,
-} from '@spantree/nexus-federation'
+} from 'nexus-federation-plugin'
+
 import { createContext } from './context'
-// import nexus schema
 import { nexusSchema } from './nexusSchema'
 
 const server = new ApolloServer({
