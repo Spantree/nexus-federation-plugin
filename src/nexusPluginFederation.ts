@@ -3,12 +3,12 @@ import { printedGenTyping, printedGenTypingImport } from 'nexus/dist/utils'
 import { SourceValue, GetGen } from 'nexus/dist/core'
 
 const KeyFieldsImport = printedGenTypingImport({
-  module: '@spantree/nexus-federation',
+  module: 'nexus-federation-plugin',
   bindings: ['KeyFields'],
 })
 
 const ObjectTypeFieldsImport = printedGenTypingImport({
-  module: '@spantree/nexus-federation',
+  module: 'nexus-federation-plugin',
   bindings: ['ObjectTypeFields'],
 })
 
@@ -42,7 +42,7 @@ const fieldsOptions = printedGenTyping({
 })
 
 const ResolveReferenceImport = printedGenTypingImport({
-  module: '@spantree/nexus-federation',
+  module: 'nexus-federation-plugin',
   bindings: ['ResolveReference'],
 })
 
