@@ -1,5 +1,7 @@
 ## nexus-federation-plugin
 
+[![npm version](https://badge.fury.io/js/nexus-federation-plugin.svg)](https://badge.fury.io/js/nexus-federation-plugin)
+
 A [Nexus](https://nexusjs.org/) plugin to integrate
 [Apollo Federation](https://www.apollographql.com/docs/federation/)
 with [Nexus Schema](https://nexusjs.org/docs/guides/schema).
