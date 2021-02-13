@@ -1,7 +1,7 @@
 import { ApolloServer } from 'apollo-server'
 import { ApolloServerPluginInlineTraceDisabled } from 'apollo-server-core'
 import { objectType, makeSchema } from 'nexus'
-import { nexusPluginFederation, transformSchemaFederation } from '../index'
+import { nexusPluginFederation, transformSchemaFederation } from '../src/index'
 import { join } from 'path'
 
 const Post = objectType({

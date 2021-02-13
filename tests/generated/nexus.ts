@@ -3,8 +3,8 @@
  * Do not make changes to this file directly
  */
 
-import { Context } from './../server'
-import { KeyFields, ObjectTypeFields, ResolveReference } from '../../index'
+import { Context } from '../server'
+import { KeyFields, ObjectTypeFields, ResolveReference } from '../../src/index'
 
 declare global {
   interface NexusGen extends NexusGenTypes {}
