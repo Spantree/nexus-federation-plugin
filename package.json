@@ -10,7 +10,7 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "tsdx --tsconfig nexus.tsconfig.json test",
+    "test": "tsdx test",
     "lint": "tsdx lint",
     "prepare": "tsdx test && tsdx lint && tsdx build"
   },

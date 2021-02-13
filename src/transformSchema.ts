@@ -3,7 +3,7 @@ import {
   FederationObjectConfig,
 } from 'graphql-transform-federation'
 import { NexusGraphQLSchema } from 'nexus/dist/core'
-import chalk from 'chalk'
+import * as chalk from 'chalk'
 
 interface ObjectType {
   name: string
