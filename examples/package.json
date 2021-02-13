@@ -12,9 +12,10 @@
     "dev": "ts-node-dev --no-notify --respawn --transpile-only src/server"
   },
   "dependencies": {
-    "nexus": "1.0.0",
     "apollo-server": "2.19.0",
-    "graphql": "15.4.0"
+    "graphql": "15.4.0",
+    "nexus": "1.0.0",
+    "nexus-federation-plugin": "^0.0.12"
   },
   "devDependencies": {
     "@types/node": "14.14.14",
