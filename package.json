@@ -19,7 +19,7 @@
     "apollo-server-testing": "^2.19.0",
     "chalk": "^4.1.0",
     "graphql-transform-federation": "^2.2.0",
-    "nexus": "1.0.0"
+    "nexus": "^1.1.0"
   },
   "devDependencies": {
     "@types/node": "14.14.14",
