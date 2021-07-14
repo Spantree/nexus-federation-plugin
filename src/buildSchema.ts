@@ -1,4 +1,3 @@
-import { createTestClient } from 'apollo-server-testing'
 import gql from 'graphql-tag'
 import { format } from 'prettier'
 import { writeFileSync, mkdirSync } from 'fs'
@@ -17,10 +16,7 @@ export async function printTransformedSchema(
   server: ApolloServer,
   path = 'src/generated/',
 ) {
-  const { query } = createTestClient(server)
-  const result = await query({
-    query: GET_SDL,
-  })
+  const result = await server.executeOperation({ query: GET_SDL })
 
   const fileContent = format(result.data._service.sdl, {
     trailingComma: 'all',
