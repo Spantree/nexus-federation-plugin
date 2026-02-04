@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "nexus": "1.0.0",
-    "apollo-server": "2.19.0",
+    "apollo-server": "3.13.0",
     "graphql": "15.4.0"
   },
   "devDependencies": {
